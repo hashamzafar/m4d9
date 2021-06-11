@@ -14,14 +14,14 @@ function App() {
   return (
     <Router>
    
-      <Route path= "/" render= {()=>(<Navbar/>)} />
-      <Route path= "/" render= {()=>(<Search/>)} />
-      <Route path= "/" render= {()=>(<WarningSign title="exercise 1"/>)} />
-      <Route path= "/"exact render= {()=>(<Navbar/>)} />
-     <MyBadge color='success'/>
-      <Route path="/Rigistration" exact render={() => (<Registration/>)}/>
-      <Route path="/SingleBook" exact render={() => (<SingleBook img = {books[0].img} title ={books[0].title}/>)}/>
-      <Route path="/BookList" exact render={() => (<BookList books={books}/>)}/>
+      <Route path= "/" render= {(routerProps)=><Navbar {...routerProps}/>} />
+      <Route path= "/" render= {(routerProps)=><Search {...routerProps}/>} />
+      <Route path= "/" render= {(routerProps)=><WarningSign {...routerProps}title="exercise 1"/>} />
+      <Route path= "/" render= {(routerProps)=> <MyBadge {...routerProps} color='success'/>} />
+     
+      <Route path="/Rigistration" exact render={(routerProps) => <Registration  {...routerProps}/>}/>
+      <Route path="/SingleBook" exact render={(routerProps) => <SingleBook {...routerProps} img = {books[0].img} title ={books[0].title}/>}/>
+      <Route path="/BookList" exact render={(routerProps) => <BookList {...routerProps} books={books}/>}/>
      
    
     </Router>
